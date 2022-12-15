@@ -1,0 +1,153 @@
+nav {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    padding-top: 10px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(40deg, rgb(219, 3, 3), rgb(1, 1, 204));
+    z-index: 10;
+    overflow-x: hidden;
+    color: #ffffff;
+    font-weight: 800;
+    font-style: italic;
+    transition: 1.5s;
+}
+
+nav a {
+    padding-left: 5%;
+    display: block;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    transition: .7s;
+    width: 100%;
+    word-spacing: 1em;
+    line-height: 2em;
+}
+
+nav a:hover, nav a:focus {
+    background: #ffffff;
+    color: purple;
+    transform: skew(20deg) translateX(10%);
+}
+
+nav a:focus {
+    background: #000000;
+    color: #ffffff;
+}
+
+#cls_nav {
+    text-align: right;
+    margin-left: -10%;
+}
+
+#cls_nav:hover, #cls_nav:focus {
+    transform: skew(-20deg) translateX(-10%);
+}
+
+header, footer, #popUp div {
+    width: 100%;
+    background: linear-gradient(45deg, rgb(4, 4, 221), rgb(226, 4, 4));
+    margin: 0px auto;
+    color: white;
+    text-align: center;
+    display: inline-flex;
+    text-shadow: -1px -1px 2px black, 1px 1px 2px black;
+}
+
+header span, footer {
+    font-size: 30px;
+    font-weight: 800;
+    padding: 2%;
+}
+
+header span:first-child, #cls_pop {
+    cursor: pointer;
+    float: left;
+}
+
+header span:first-child:hover, header span:first-child:focus, #cls_pop:hover, #cls_pop:focus {
+    background: #ffffff;
+    color: #000000;
+    text-shadow: none;
+}
+
+header span:last-child, #pop_title {
+    width: 100%;
+    text-align: left;
+}
+
+aside {
+    width: 100%;
+    background: black;
+    display: grid;
+    margin: 0 auto;
+}
+
+section {
+    height: 100%;
+    padding: 5%;
+}
+
+article {
+    height: 100%;
+    padding: 4%;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+    background: white;
+}
+
+footer {
+    text-align: center;
+    background: #000000;
+    font-size: 25px;
+}
+
+#popUp {
+    background: rgba(200, 200, 200, 0.8);
+    display: inline-grid;
+    width: 100%;
+    height: 0;
+    padding: 0;
+    position: fixed;
+    overflow: hidden;
+    z-index: 999999;
+    bottom: 0;
+    left: 0;
+    transition: .5s;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+#popUp #cls_pop, #pop_title {
+    padding: 2%;
+    position: absolute;
+}
+
+#object-con {
+    width: 50%;
+    height: 60%;
+    display: inline-block;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#object-con img {
+    width: 100%;
+    height: 100%;
+}
+
+#object-con video {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width:1000px) {
+    article {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+}

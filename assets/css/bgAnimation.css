@@ -1,0 +1,21 @@
+nav, header {
+    animation: bgchange 10s infinite;
+}
+
+@keyframes bgchange {
+    0% {
+        background: linear-gradient(72deg, rgb(219, 3, 3), rgb(1, 1, 204))
+    }
+    25% {
+        background: linear-gradient(144deg, rgb(219, 3, 3), rgb(1, 1, 204))
+    }
+    50% {
+        background: linear-gradient(216deg, orange, green)
+    }
+    75% {
+        background: linear-gradient(288deg, rgb(219, 3, 3), rgb(1, 1, 204))
+    }
+    100% {
+        background: linear-gradient(360deg, rgb(219, 3, 3), rgb(1, 1, 204))
+    }
+}

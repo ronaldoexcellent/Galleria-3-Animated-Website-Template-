@@ -1,0 +1,26 @@
+.slide {
+    border: 0;
+    width: 100%;
+    float: left;
+    animation: slide 4s ease;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+        opacity: 0.8
+    }
+
+    40% {
+        transform: translateX(0);
+        opacity: 1
+    }
+
+    70% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

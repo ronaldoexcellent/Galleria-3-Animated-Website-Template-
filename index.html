@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.000" />
+</head>
+<!-- Doctor Cipher's Rules -->
+<!-- Package Styling -->
+<style>
+    [role=package] {
+        user-select: none;
+        width: 100%;
+        height: 100%;
+        background: grey;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    [role=package]::-webkit-scrollbar {
+        display: block;
+    }
+    [role=package]::-webkit-scrollbar-track {
+        background: rgb(78, 0, 78);
+        border: 2px solid yellowgreen;
+    }
+    [role=package]::-webkit-scrollbar-thumb {
+        background:white;
+        border-radius: 30%;
+    }
+</style>
+
+<!-- App Start -->
+<application name="Galleria 3" role="package" oncontextmenu="return false">
+    <app::meta-data />
+    <meta name="description" content="Web Gallery Designed & Developed By Ronaldo Excellent" />
+
+    <app::title />
+    <title> Galleria 3 </title>
+
+    <app::style />
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/loader.css" />
+    <link rel="stylesheet" href="assets/css/bgAnimation.css" />
+    <link rel="stylesheet" href="assets/css/slide.css" /> <!-- Page Styling -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <app::layout />
+    <main>
+        <section id="popUp"></section>
+
+        <nav>
+            <a id="cls_nav" href="javascript:void(0)"> &times; </a>
+            <a href="index.html"><i class="fa fa-home"></i> <span>Home</span> </a>
+            <a href="#"><i class="fa fa-image"></i> <span>Pictures</span> </a>
+            <a href="#"><i class="fa fa-video"></i> <span>Videos</span> </a>
+            <a href="#"><i class="fa fa-music"></i> <span>Music</span> </a>
+            <a href="#"><i class="fa fa-message"></i> <span>Contact</span> </a>
+            <a href="#"><i class="fa fa-info-circle"></i> <span>About</span> </a>
+        </nav>
+
+        <aside id="loader-container">
+            <section id="motion">
+                <div class="outer"></div>
+                <div class="center"></div>
+                <div class="inner">Loading</div> 
+            </section>
+    
+            <section id="lights">
+                <div class="one"></div> &nbsp <div class="two"></div> &nbsp <div class="three"></div>
+            </section>
+        </aside>
+
+        <header>
+            <span id="opn_nav"> &equiv; </span>
+            <span id="app-name"></span>
+        </header>
+
+        <aside>
+            <img src="files/slideshow/slide 1.jpg" alt="slide" class="slide" />
+            <img src="files/slideshow/slide 2.jpg" alt="slide" class="slide" />
+            <img src="files/slideshow/slide 3.jpg" alt="slide" class="slide" />
+            <img src="files/slideshow/slide 4.jpg" alt="slide" class="slide" />
+        </aside>
+
+        <section id="page-content">
+            <article class="page-contents">
+                <h1>Hello World</h1>
+            </article>
+        </section>
+
+        <footer></footer>
+    </main>
+
+    <app::engine />
+    <script>
+        // Start Engine
+        start();      
+
+        function start() {
+            try {
+                // Declare variables
+                const app_name = document.querySelector('application').getAttribute("name");
+                _header_title = document.getElementById("app-name");
+                $sect = document.querySelector('#page-content');
+                $art = document.querySelector('.page-contents');
+                $art_h1 = document.querySelector('.page-contents h1');
+                $nav = document.querySelector('nav');
+                $nav_links = document.querySelectorAll('nav a');
+                $show_nav = document.querySelector('#opn_nav');
+                _hide_nav = document.querySelector('#cls_nav');
+                _ld_container = document.getElementById("loader-container");
+                _foot_note = document.querySelector('footer');
+                
+                // Background programming
+                _header_title.innerHTML = app_name; 
+                ($art_h1.innerHTML !== "Hello World") ? null : $art.hidden = true; $sect.hidden = true;
+                _foot_note.innerHTML = "<center>&copy; Copyright Doctor Cipher 2022.</center>";
+
+                // Add functions
+                $show_nav.onclick = () => {
+                    (screen.width < 1000) ? $nav.style.width = "85%" : $nav.style.width = "30%";
+                };
+
+                _hide_nav.onclick = () => $cls_nav();
+                
+                $nav.children[1].onclick = () => {nav_settings(event)};
+                $nav.children[2].onclick = () => {nav_settings(event)};
+                $nav.children[3].onclick = () => {nav_settings(event)};
+                $nav.children[4].onclick = () => {nav_settings(event)};
+                $nav.children[5].onclick = () => {nav_settings(event)};
+                $nav.children[6].onclick = () => {nav_settings(event)};
+
+                // Manipulate functions
+                function $cls_nav() {
+                    $nav.style.width = 0;
+                }
+
+                function nav_settings(event) {
+                    const load_icon = document.querySelector('.inner');
+                    let p_icon = event.target.querySelector('i');
+                    const p_name = event.target.querySelector('span');
+                    let p_i = p_icon.cloneNode();
+                    $art.hidden = false; $sect.hidden = false;
+
+                    document.querySelector('.page-contents h1').innerHTML = p_name.innerHTML + "<br /> <embed src='pages/" + p_name.innerHTML + ".html'></embed>";
+                    document.querySelector('#lights').style.display = "none";
+                    load_icon.style.color = "#000000";
+                    load_icon.style.fontWeight = "800";
+                    load_icon.style.textShadow = "2px 2px 2px #ffffff";
+                    load_icon.style.fontSize = '5em';
+                    load_icon.innerHTML = " ";
+                    load_icon.appendChild(p_i);
+
+                    $cls_nav();
+                    _ld_container.style.display = "grid";
+                    _ld_container.style.position = "fixed";
+                    _ld_container.style.height = "100%";
+                    setTimeout(function () {_ld_container.style.display = "none";}, 2500);
+                }
+
+                // Finish
+            }
+
+            catch (e_data) {
+                console.log(e_data)
+            }
+        }
+    </script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/slide.js"></script>
+</application>
+<!-- App End -->
